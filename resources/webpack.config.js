@@ -23,23 +23,7 @@ const client = {
       },
     ],
   },
-  plugins: [
-    {
-      apply: (compiler) => {
-        compiler.hooks.afterCompile.tap("EmitFetch", async () => {
-          await Delay(50);
-          console.log("Running Restart");
-          axios.get(`http://localhost:30110/lc-staff/rr`, {
-            method: "GET",
-            headers: {
-              ["authorization"]: "3faaa109-39a1-4c2f-bb6e-806245f541e7",
-            },
-          });
-        });
-      },
-    },
-    new CleanWebpackPlugin(),
-  ],
+  plugins: [new CleanWebpackPlugin()],
   optimization: {
     minimize: true,
   },
@@ -69,23 +53,7 @@ const server = {
       },
     ],
   },
-  plugins: [
-    {
-      apply: (compiler) => {
-        compiler.hooks.afterCompile.tap("EmitFetch", async () => {
-          await Delay(50);
-          console.log("Running Restart");
-          axios.get(`http://localhost:30110/lc-staff/rr`, {
-            method: "GET",
-            headers: {
-              ["authorization"]: "3faaa109-39a1-4c2f-bb6e-806245f541e7",
-            },
-          });
-        });
-      },
-    },
-    new CleanWebpackPlugin(),
-  ],
+  plugins: [new CleanWebpackPlugin()],
   optimization: {
     minimize: false,
   },
